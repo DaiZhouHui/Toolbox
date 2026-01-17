@@ -1,0 +1,47 @@
+name: Update Dashboard
+
+on:
+  schedule:
+    # 每天国际标准时间0点（北京时间8点）运行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 允许手动触发
+  push:
+    branches: [ main ]
+    paths:
+      - 'generate_auto_descriptions.py'
+      - '.github/workflows/*'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 允许工作流写入内容（提交代码）
+    
+    steps:
+      - name: 🔄 检出代码
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GH_TOKEN }}
+          
+      - name: 🐍 设置Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: 📦 安装依赖
+        run: pip install requests
+        
+      - name: 🤖 运行自动生成脚本
+        env:
+          # 关键步骤：将仓库Secret传递给脚本环境变量
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_USERNAME: ${{ vars.USERNAME }}
+        run: python generate_auto_descriptions.py
+        
+      - name: 💾 提交更新
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add README.md tools_index.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 自动更新项目仪表板 [skip ci]" && git push)

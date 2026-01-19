@@ -35,7 +35,7 @@ except FileNotFoundError:
     USERNAME = 'DaiZhouHui'
     REPO_LIST = ["NodeWeb", "CustomNode", "50DayChallenge"]
 # ====================================
-]
+
 # 如果没有找到令牌，显示错误信息
 if not GITHUB_TOKEN:
     print("❌ 错误：未找到 GitHub Token。")

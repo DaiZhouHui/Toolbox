@@ -7,6 +7,7 @@ Toolbox 主生成脚本 - 自动分析GitHub仓库并生成README仪表板
 import os
 import sys
 import time  # 在文件开头的导入部分添加这行
+import json  # 确保导入了json模块
 import requests
 import json
 import base64
@@ -20,13 +21,20 @@ load_dotenv()  # 加载.env文件中的环境变量
 # 从环境变量获取配置
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 USERNAME = os.getenv('GITHUB_USERNAME', 'DaiZhouHui')
-# 要分析的仓库列表 - 修改这里添加你的仓库
-REPO_LIST = [
-    "NodeWeb",
-    "CustomNode", 
-    "50DayChallenge"
-    # 在这里添加更多仓库，例如:
-    # "AnotherRepo",
+# 
+# ========== 从congfig.json配置文件读取要分析的仓库列表 ==========
+CONFIG_FILE = 'config.json'
+try:
+    with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+        config = json.load(f)
+    USERNAME = config.get('github_username', 'DaiZhouHui')
+    REPO_LIST = config.get('repositories', [])
+    print(f"✅ 已从 {CONFIG_FILE} 加载配置。")
+except FileNotFoundError:
+    print(f"⚠️  未找到配置文件 {CONFIG_FILE}，使用默认配置。")
+    USERNAME = 'DaiZhouHui'
+    REPO_LIST = ["NodeWeb", "CustomNode", "50DayChallenge"]
+# ====================================
 ]
 # 如果没有找到令牌，显示错误信息
 if not GITHUB_TOKEN:

@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: 🐍 设置Python
         uses: actions/setup-python@v4
@@ -35,7 +35,7 @@ jobs:
       - name: 🤖 运行自动生成脚本
         env:
           # 关键步骤：将仓库Secret传递给脚本环境变量
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ vars.USERNAME }}
         run: python generate_auto_descriptions.py
         

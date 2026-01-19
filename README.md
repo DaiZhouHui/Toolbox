@@ -1,13 +1,13 @@
 # 🧰 DaiZhouHui's Toolbox
-> 个人开发工具与项目集合 | 最后更新: 2026-01-17 15:42:12
+> 个人开发工具与项目集合 | 最后更新: 2026-01-19 22:12:45
 ## 📊 仪表板概览
 | 统计项 | 结果 | 说明 |
 |--------|------|------|
-| 📁 仓库总数 | **3** | 收录的项目数量 |
+| 📁 仓库总数 | **5** | 收录的项目数量 |
 | ⭐ 累计星标 | **1** | 所有仓库星标总和 |
 | 🍴 累计 Fork | **0** | 所有仓库Fork总和 |
-| 🔧 使用语言 | **1** 种 | HTML |
-| 📅 最后更新 | `2026-01-17` | CustomNode |
+| 🔧 使用语言 | **4** 种 | Batchfile, HTML, JavaScript, Python |
+| 📅 最后更新 | `2026-01-19` | WebTools |
 ## 🏆 热门项目
 以下是根据星标数排序的热门项目:
 
@@ -17,7 +17,7 @@
 - ⭐ 星标: **1** | 🍴 Fork: **0**
 - 📅 更新: `2026-01-17` | 🐛 问题: 0
 - 🔧 语言: `多种语言` | 📚 Wiki: ✅
-**🔗 快速链接:** [访问仓库](https://github.com/DaiZhouHui/CustomNode)
+**🔗 快速链接:** [访问仓库](https://github.com/DaiZhouHui/CustomNode) | 其他语言: `Python`, `JavaScript`
 
 ---
 
@@ -41,23 +41,44 @@ Project 50
 
 ---
 
+### 🗃️ [TypeGuard](https://github.com/DaiZhouHui/TypeGuard)
+打字时自动阻断笔记本触控功能
+**📊 统计信息:**
+- ⭐ 星标: **0** | 🍴 Fork: **0**
+- 📅 更新: `2026-01-17` | 🐛 问题: 0
+- 🔧 语言: `Python` | 📚 Wiki: ✅
+**🔗 快速链接:** [访问仓库](https://github.com/DaiZhouHui/TypeGuard) | 其他语言: `Batchfile`
+
+---
+
+### 🗃️ [WebTools](https://github.com/DaiZhouHui/WebTools)
+个人开发的一些网页小工具
+**📊 统计信息:**
+- ⭐ 星标: **0** | 🍴 Fork: **0**
+- 📅 更新: `2026-01-19` | 🐛 问题: 0
+- 🔧 语言: `HTML` | 📚 Wiki: ✅
+**🔗 快速链接:** [访问仓库](https://github.com/DaiZhouHui/WebTools) | 其他语言: `Python`
+
+---
+
 ## 🔄 最近更新
 | 仓库 | 更新日期 | 星标数 | 状态 |
 |------|----------|--------|------|
+| [WebTools](https://github.com/DaiZhouHui/WebTools) | 2026-01-19 | ⭐ 0 | 🟢 活跃 |
 | [CustomNode](https://github.com/DaiZhouHui/CustomNode) | 2026-01-17 | ⭐ 1 | 🟢 活跃 |
-| [NodeWeb](https://github.com/DaiZhouHui/NodeWeb) | 2026-01-16 | ⭐ 0 | 🟢 活跃 |
-| [50DayChallenge](https://github.com/DaiZhouHui/50DayChallenge) | 2025-03-07 | ⭐ 0 | 🔴 停滞 |
+| [TypeGuard](https://github.com/DaiZhouHui/TypeGuard) | 2026-01-17 | ⭐ 0 | 🟢 活跃 |
 
 ## 🔧 技术栈分析
 ### 主要编程语言分布
 ~~~
-HTML            █ (1)
+HTML            ██ (2)
+Python          █ (1)
 ~~~
 ### 项目特性统计
-- 📚 带Wiki的项目: 2/3
-- 🌐 启用Pages的项目: 2/3
+- 📚 带Wiki的项目: 4/5
+- 🌐 启用Pages的项目: 3/5
 - 🏷️ 平均标签数: 0.0 个/项目
-- 📄 有许可证的项目: 0/3
+- 📄 有许可证的项目: 0/5
 
 ## 🚀 使用说明
 ### 手动更新
@@ -89,5 +110,5 @@ Toolbox/
 2. 确保要分析的仓库是公开的
 3. 检查网络连接是否正常
 ---
-*✨ 此页面由自动化脚本生成 | 生成时间: 2026-01-17 15:42:12*
+*✨ 此页面由自动化脚本生成 | 生成时间: 2026-01-19 22:12:45*
 *[查看生成脚本](generate_auto_descriptions.py) | [报告问题](https://github.com/DaiZhouHui/Toolbox/issues)*

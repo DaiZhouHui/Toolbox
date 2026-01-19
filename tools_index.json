@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-01-17T15:42:12.871020",
-    "total_repositories": 3,
+    "generated_at": "2026-01-19T22:12:45.114049",
+    "total_repositories": 5,
     "username": "DaiZhouHui",
     "toolbox_version": "1.0.0"
   },
@@ -11,6 +11,7 @@
     "total_issues": 0,
     "languages": [
       "HTML",
+      "Python",
       "多种语言"
     ]
   },
@@ -49,6 +50,30 @@
       "updated_at": "2025-03-07",
       "topics": [],
       "has_wiki": false,
+      "license": null
+    },
+    {
+      "name": "TypeGuard",
+      "url": "https://github.com/DaiZhouHui/TypeGuard",
+      "description": "打字时自动阻断笔记本触控功能",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "updated_at": "2026-01-17",
+      "topics": [],
+      "has_wiki": true,
+      "license": null
+    },
+    {
+      "name": "WebTools",
+      "url": "https://github.com/DaiZhouHui/WebTools",
+      "description": "个人开发的一些网页小工具",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "updated_at": "2026-01-19",
+      "topics": [],
+      "has_wiki": true,
       "license": null
     }
   ]

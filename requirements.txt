@@ -1,0 +1,4 @@
+requests
+python-dotenv
+# 未来可在此添加其他依赖，如PyGithub
+# PyGithub

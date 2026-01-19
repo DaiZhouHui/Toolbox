@@ -11,6 +11,7 @@ import json  # 确保导入了json模块
 import requests
 import json
 import base64
+import binascii  # <-- 新增这行
 import re
 from datetime import datetime
 from typing import List, Dict, Optional, Any
@@ -82,19 +83,6 @@ def call_github_api(endpoint: str, retries: int = 2) -> Optional[Dict[str, Any]]
         except (json.JSONDecodeError, IOError) as e:
             print(f"  ⚠️  缓存文件损坏，重新请求: {endpoint}")
     # ======================================
-    
-    # ... 原有的网络请求和重试逻辑保持不变 ...
-    
-    # ==== 【新增】尝试从本地缓存读取 ====
-    cache_file = f"api_cache{endpoint.replace('/', '_')}.json"
-    if os.path.exists(cache_file):
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                print(f"  💾 从缓存加载: {endpoint}")
-                return json.load(f)
-        except:
-            pass  # 如果缓存读取失败，则继续请求网络
-    # =====================================
     
     for attempt in range(retries + 1):
         try:
@@ -174,7 +162,7 @@ def get_repository_readme(owner: str, repo_name: str) -> str:
         try:
             content = base64.b64decode(data['content']).decode('utf-8', errors='ignore')
             return content
-        except (base64.binascii.Error, UnicodeDecodeError) as e:
+        except (binascii.Error, UnicodeDecodeError) as e:  # <-- 修改这里
             print(f"  ⚠️ README解码失败: {e}")
             return ""
     
@@ -450,8 +438,22 @@ def generate_readme_content(repositories: List[Dict[str, Any]]) -> str:
 |------|----------|--------|------|
 """
     for repo in recent_repos:
-        days_ago = (datetime.now() - datetime.strptime(repo['updated_at'], '%Y-%m-%d')).days
-        status = "🟢 活跃" if days_ago < 30 else "🟡 一般" if days_ago < 90 else "🔴 停滞"
+        status = "🟢 活跃"  # 默认状态
+        try:
+            if repo['updated_at']:  # 确保日期不为空
+                # 增加日期格式解析保护
+                date_obj = datetime.strptime(repo['updated_at'], '%Y-%m-%d')
+                days_ago = (datetime.now() - date_obj).days
+                if days_ago < 30:
+                    status = "🟢 活跃"
+                elif days_ago < 90:
+                    status = "🟡 一般"
+                else:
+                    status = "🔴 停滞"
+        except (ValueError, TypeError):
+            # 如果日期解析失败（例如格式不对或为空），保持默认状态
+            pass
+        
         markdown += f"| [{repo['name']}]({repo['url']}) | {repo['updated_at']} | ⭐ {repo['stars']} | {status} |\n"
     
     # 添加技术栈分析（此处使用 ~~~ 避免嵌套 ``` 导致的显示问题）
@@ -522,6 +524,21 @@ Toolbox/
 """
     
     return markdown
+
+
+"""初始化环境：创建缓存目录、验证令牌"""
+# 1. 确保缓存目录存在
+cache_dir = "api_cache"
+if not os.path.exists(cache_dir):
+    os.makedirs(cache_dir, exist_ok=True)
+    print(f"📁 创建缓存目录: {cache_dir}")
+
+# 2. 验证令牌基本格式（简单检查）
+token = os.getenv('GITHUB_TOKEN')
+if not token or len(token) < 20:
+    print("❌ 错误：GITHUB_TOKEN 环境变量未设置或格式无效。")
+    print("请确保已在GitHub仓库的Secrets中正确设置 PAT_TOKEN 或 GITHUB_TOKEN。")
+    sys.exit(1)
 # ========== 主程序 ==========
 def main():
     """

@@ -30,7 +30,8 @@ jobs:
           python-version: '3.14'
           
       - name: 📦 安装依赖
-        run: pip install requests
+        run: pip install -r requirements.txt
+
         
       - name: 🤖 运行自动生成脚本
         env:

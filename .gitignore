@@ -10,5 +10,3 @@ __pycache__/
 Thumbs.db
 
 # 脚本生成的索引文件
-tools_index.json
-repository_analysis.json

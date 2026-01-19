@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-17T15:42:12.871020",
+    "total_repositories": 3,
+    "username": "DaiZhouHui",
+    "toolbox_version": "1.0.0"
+  },
+  "statistics": {
+    "total_stars": 1,
+    "total_forks": 0,
+    "total_issues": 0,
+    "languages": [
+      "HTML",
+      "多种语言"
+    ]
+  },
+  "repositories": [
+    {
+      "name": "NodeWeb",
+      "url": "https://github.com/DaiZhouHui/NodeWeb",
+      "description": "一个功能强大的Web工具，用于将CSV数据转换为Vless节点链接，生成Base64订阅，并与GitHub仓库同步。",
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "updated_at": "2026-01-16",
+      "topics": [],
+      "has_wiki": true,
+      "license": null
+    },
+    {
+      "name": "CustomNode",
+      "url": "https://github.com/DaiZhouHui/CustomNode",
+      "description": "节点",
+      "stars": 1,
+      "forks": 0,
+      "language": "多种语言",
+      "updated_at": "2026-01-17",
+      "topics": [],
+      "has_wiki": true,
+      "license": null
+    },
+    {
+      "name": "50DayChallenge",
+      "url": "https://github.com/DaiZhouHui/50DayChallenge",
+      "description": "Project 50",
+      "stars": 0,
+      "forks": 0,
+      "language": "多种语言",
+      "updated_at": "2025-03-07",
+      "topics": [],
+      "has_wiki": false,
+      "license": null
+    }
+  ]
+}
